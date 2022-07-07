@@ -22,5 +22,5 @@ function waterTank(arr){
     }
     console.log('waterunit', tank)
 }
-let arr=[0,4,0,2,0,0,6,4,0,7];
+let arr=[0,4,0,0,0,6,0,6,4,0];
 console.log(waterTank(arr));
