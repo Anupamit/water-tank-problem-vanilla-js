@@ -1,12 +1,9 @@
 function  createChartTable(inputArr, outputArr){
-    console.log('anp1')
     let dom = document.getElementById('chart-container');
-    console.log(dom)
     let myChart = echarts.init(dom, null, {
     renderer: 'canvas',
     useDirtyRect: false
     });
-    console.log('anp2')
     let option = {
     xAxis: {
         type: 'category',
@@ -22,11 +19,9 @@ function  createChartTable(inputArr, outputArr){
         }
     ]
     };
-    console.log('anp3')
     if (option && typeof option === 'object') {
         myChart.setOption(option);
     }
-    console.log('anp4')
     window.addEventListener('resize', myChart.resize);
 }
 
