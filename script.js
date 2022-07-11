@@ -1,13 +1,21 @@
-function  createChartTable(inputArr, outputArr){
-    let dom = document.getElementById('chart-container');
+function fetchArr(){
+    let fromElement = document.getElementById('inputArr');
+    let inputArr = fromElement.value.split(',')
+    let bricks = showBricksAndWater(inputArr)
+    showBricksAndWater(inputArr,bricks)
+}
+
+function  createChartTable(xAxisNamesArr, outputArr, id){
+    let dom = document.getElementById(id);
     let myChart = echarts.init(dom, null, {
     renderer: 'canvas',
     useDirtyRect: false
     });
+    let app = {};
     let option = {
     xAxis: {
         type: 'category',
-        data: inputArr
+        data: xAxisNamesArr
     },
     yAxis: {
         type: 'value'
@@ -25,10 +33,7 @@ function  createChartTable(inputArr, outputArr){
     window.addEventListener('resize', myChart.resize);
 }
 
-let bricks = [0,4,0,0,0,6,0,6,4,0]
-// firstcase =      [0,-,-,6, 6,-]
-// secondCase=      [6,-,-,7,7,-]
-// finalCase = [0, -,-, 6, 6, -]
+function showBricksAndWater(bricks){
 let finalCase = []
 let firstcase = []
 let secondCase = []
@@ -86,4 +91,5 @@ console.log(firstcase)
 console.log(secondCase)
 console.log(finalCase)
 console.log(result)
-createChartTable(bricks, result)
+createChartTable(bricks, result, 'chart-container')
+}
