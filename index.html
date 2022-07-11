@@ -4,10 +4,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Water Tank</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #chart-container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+    </style>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://fastly.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
 </head>
-    <input type="text" id="arraydata" name="arraydata">
-    <button id="btn" name="btn">Show Table</button><br>
-    <i>Input[0,4,0,0,0,6,0,6,4,0]</i>
-    <script src="index.js"></script>
+    <div class="header"><h2>Water Tank Problem</h2></div>
+    <div class="inputarea">
+        <input type="text" id="inputArr" name="inputArr" placeholder="Type Input Array">
+        <i>Input[0,4,0,0,0,6,0,6,4,0]</i>
+        <button class="button" id="array-btn" onclick="fetchArr()">Show Graph</button>
+    </div>
+    <div class="waterAndWallContainer">
+        <h3>Input</h3>
+        <div id="chart-container"></div>
+    </div>
+    <div class="onlyWaterContainer">
+        <h3>Output</h3>
+        <h4><span id="waterunit"></span> Units</h4>
+        <div id="chart-container1"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
