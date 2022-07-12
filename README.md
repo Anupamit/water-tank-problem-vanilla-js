@@ -1,10 +1,3 @@
 # Water Tank Problem
-Given `n` always greater than -1, representing the block height. Now compute the units
-of water stored in-between the blocks. Build a Web Application (Frontend Solution)
-using Vanilla JavaScript and HTML/CSS to represent the solution.
-Hint: Generate SVG Shape (preferred) or Table View like the one below,
-Example
-Input
-[0,4,0,0,0,6,0,6,4,0]
-Output
-18 Units
+
+![wtp](https://user-images.githubusercontent.com/38889415/178582258-183c7cb8-d0a0-4f2a-9429-42e07f87713b.png)
