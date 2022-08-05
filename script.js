@@ -20,7 +20,7 @@ const waterSum = (finalCase) => {
 
 function  createChartTable(xAxisNamesArr, outputArr, id){
     let dom = document.getElementById(id);
-    let myChart = echarts.init(dom, null, {
+    let myChart = echarts.init(dom, 'dark', {
     renderer: 'canvas',
     useDirtyRect: false
     });
