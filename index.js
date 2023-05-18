@@ -116,56 +116,56 @@ function waterAndBricks(bricks) {
 
 
 function onlyWater(water) {
-    let firstCase=[]
-    let secondCase=[]
-    let finalCase=[]
-    let result=[]
-    let lastValueForFirstCase=0
-    let lastValueForSecondCase=0
+    let firstCase = [];
+    let secondCase = [];
+    let finalCase = [];
+    let result = [];
+    let lastValueForFirstCase = 0;
+    let lastValueForSecondCase = 0;
     for (let i = 0; i < water.length; i++) {
-        let element = water[i];
-        if (element == 0) {
-            firstCase.push(lastValueForFirstCase)
-        }else{
-            firstCase.push('-')
-            lastValueForFirstCase=element
-        }
+      let element = water[i];
+      if (element == 0) {
+        firstCase.push(lastValueForFirstCase);
+      } else {
+        firstCase.push('-');
+        lastValueForFirstCase = element;
+      }
     }
-    for (let  i = water.length-1; i >= 0; i--) {
-        let element = water[i];
-        if (element == 0) {
-            secondCase[i]='-'
-        }else{
-            secondCase.push('-')
-            lastValueForSecondCase=element
-        }
-    }
-    for (let i = 0; i < water.length; i++) {
-        let fc=firstCase[i];
-        let sc=secondCase[i]
-        if (fc == '-') {
-            finalCase[i]='-'
-        }else{
-            finalCase[i]= fc - sc > 0 ? sc : fc
-        }
+    for (let i = water.length - 1; i >= 0; i--) {
+      let element = water[i];
+      if (element == 0) {
+        secondCase[i] = lastValueForSecondCase;
+      } else {
+        secondCase[i] = '-';
+        lastValueForSecondCase = element;
+      }
     }
     for (let i = 0; i < water.length; i++) {
-        let element = water[i];
-        if (element == 0) {
-            result.push({
-                value:finalCase[i],
-                itemStyle:{
-                    color:'#0000FF'
-                }
-            })
-        }else{
-            result.push({
-                value:0,
-                itemStyle:{
-                    color:'#0000FF'
-                }
-            })
-        }
+      let fc = firstCase[i];
+      let sc = secondCase[i];
+      if (fc == '-') {
+        finalCase[i] = '-';
+      } else {
+        finalCase[i] = fc - sc > 0 ? sc : fc;
+      }
     }
-    createTable(water,result,'chart-container1')
-}
+    for (let i = 0; i < water.length; i++) {
+      let element = water[i];
+      if (element == 0) {
+        result.push({
+          value: finalCase[i],
+          itemStyle: {
+            color: '#0000FF',
+          },
+        });
+      } else {
+        result.push({
+          value: element - finalCase[i], // Subtract the finalCase value from the element value to get the water amount
+          itemStyle: {
+            color: '#0000FF',
+          },
+        });
+      }
+    }
+    createTable(water, result, 'chart-container1');
+  }  
